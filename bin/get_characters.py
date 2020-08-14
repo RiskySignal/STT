@@ -3,7 +3,7 @@ import argparse
 import os
 import csv
 import glob
-from .chinese_filter import validate_label
+from chinese_filter import validate_label
 
 PARAMS = None
 
