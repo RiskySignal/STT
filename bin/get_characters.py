@@ -20,7 +20,7 @@ def main():
     chara_sets = set()
     for csv_file in tsv_files:
         with open(csv_file, encoding='utf-8') as _file_:
-            reader = csv.DictReader(_file_)
+            reader = csv.DictReader(_file_, delimiter="\t")
             for line in reader:
                 sentence = line['sentence']
                 for chara in sentence:
