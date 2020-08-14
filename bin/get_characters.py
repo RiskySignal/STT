@@ -3,6 +3,7 @@ import argparse
 import os
 import csv
 import glob
+from .chinese_filter import validate_label
 
 PARAMS = None
 
@@ -22,7 +23,7 @@ def main():
         with open(csv_file, encoding='utf-8') as _file_:
             reader = csv.DictReader(_file_, delimiter="\t")
             for line in reader:
-                sentence = line['sentence']
+                sentence = validate_label(line['sentence'])
                 for chara in sentence:
                     chara_sets.add(chara)
 
