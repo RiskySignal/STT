@@ -27,6 +27,7 @@ def main():
                 sentence = validate_label(line['sentence'])
                 if not sentence:
                     print(line['sentence'])
+                    continue
 
                 for chara in sentence:
                     chara_sets.add(chara)
