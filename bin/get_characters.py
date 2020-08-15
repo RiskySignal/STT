@@ -24,14 +24,15 @@ def main():
         with open(csv_file, encoding='utf-8') as _file_:
             reader = csv.DictReader(_file_, delimiter="\t")
             for line in reader:
-                sentence = validate_label(line['sentence'])
+                raw_sentence = line['sentence']
+                sentence = validate_label(raw_sentence)
                 if not sentence:
-                    print(line['sentence'])
+                    print(raw_sentence)
                     continue
 
                 for chara in sentence:
                     chara_sets.add(chara)
-                for chara in line['sentence']:
+                for chara in raw_sentence:
                     pre_chara_sets.add(chara)
 
     with open(PARAMS.output_file, 'w', encoding='utf-8') as _file_:
