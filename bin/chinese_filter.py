@@ -1,9 +1,14 @@
 # coding=utf-8
-import re
+import os
 
-__rule__ = re.compile("[^a-zA-Z0-9\u4e00-\u9fa5]")
+__current_folder__ = os.path.dirname(__file__)
+chinses_charas_path = os.path.join(__current_folder__, "../data/chinese_characters.txt")
+chinese_charas = [line.split() for line in open(chinses_charas_path, 'w').readlines()]
 
 
 def validate_label(label):
-    __rule__.sub('', label)  # 去除标点符号等，保留中/英文字母和数字
-    return label
+    return_label = ""
+    for chara in label:
+        if chara in chinese_charas:
+            return_label += chara
+    return return_label
