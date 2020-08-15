@@ -25,6 +25,9 @@ def main():
             reader = csv.DictReader(_file_, delimiter="\t")
             for line in reader:
                 sentence = validate_label(line['sentence'])
+                if not sentence:
+                    print(line['sentence'])
+
                 for chara in sentence:
                     chara_sets.add(chara)
                 for chara in line['sentence']:
