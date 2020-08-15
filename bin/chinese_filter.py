@@ -3,7 +3,7 @@ import os
 
 __current_folder__ = os.path.dirname(__file__)
 chinses_charas_path = os.path.join(__current_folder__, "../data/chinese_characters.txt")
-chinese_charas = [line.split() for line in open(chinses_charas_path, 'w', encoding='utf-8').readlines()]
+chinese_charas = [line.split() for line in open(chinses_charas_path, 'r', encoding='utf-8').readlines()]
 
 
 def validate_label(label):
